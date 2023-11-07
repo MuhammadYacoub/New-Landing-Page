@@ -7,6 +7,9 @@
     
     <!-- Add Google Fonts (Alexandria) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria" />
+<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <!-- Add Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -39,22 +42,8 @@
 <body>
 
 <!-- model  -->
- <!-- Add this modal to display the image -->
-                                      <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="imageModalLabel">Image Popup</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img src="images/Untitled-1.jpg" class="img-fluid" alt="Popup Image">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
 
 
     <!-- Header with Image -->
@@ -66,7 +55,7 @@
     <!-- Search Box and Main Menu -->
     <div class="container mt-3">
         <div class="row">
-           
+
             <div class="col-md-9">
                 <!-- Main Menu -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -170,7 +159,7 @@
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/b6oFVLKjJOU?si=VTPtLukXQcZj9nid" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
-<!-- ... (previous HTML code) ... -->
+
 
 <!-- News Section -->
 <div class="container mt-3">
@@ -186,14 +175,15 @@
                             <img src="images/2-11-2023.jpg" class="card-img-top square-image" alt="News 2 Image">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">إستدراك </h5>
-                            <p class="card-text">السادة المندوبون المساعدون المعينون بالقرار الجمهوري رقم 434 لسنة 2023 </p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
+                            <h5 class="card-title">إستدراك</h5>
+                            <p class="card-text">السادة المندوبون المساعدون المعينون بالقرار الجمهوري رقم 434 لسنة 2023</p>
+                            <a href="images/2-11-2023.jpg" target="_blank" class="btn btn-primary">
                                 للإطلاع
-                            </button>
+                            </a>
                         </div>
                     </div>
-                </div>
+                                       
+                </div>                
                 
                 <div class="col-md-3 col-6">
                     <div class="card mb-3">
@@ -203,9 +193,9 @@
                         <div class="card-body">
                             <h5 class="card-title">إعلان هام</h5>
                             <p class="card-text">المعينون بالقرار الجمهوري رقم 434 لسنة 2023 دفعة التظلمات 2013و2014 </p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
-                                للمزيد
-                            </button>
+                            <a href="images/31-10-2023.jpg" target="_blank" class="btn btn-primary">
+                                للإطلاع
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -218,9 +208,9 @@
                         <div class="card-body">
                             <h5 class="card-title">تنويه هام </h5>
                             <p class="card-text">خاص بدفعة التظلمات 2013و2014 </p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
-                                Open Image
-                            </button>
+                            <a href="images/19-10-2023.jpg" target="_blank" class="btn btn-primary">
+                                للإطلاع
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -233,9 +223,9 @@
                         <div class="card-body">
                             <h5 class="card-title">اعلان قبول طلبات التعين</h5>
                             <p class="card-text">تعلن هيئة قضايا الدولة عن قبول طلبات التعين في وظيفة مندوب مساعد من خريجي كليات الحقوق والشريعة والقانون والشرطة دفعة  </p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
-                                Open Image
-                            </button>
+                            <a href="images/2022.jpg" target="_blank" class="btn btn-primary">
+                                للإطلاع
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -245,7 +235,7 @@
     </div>
 </div>
 
-
+<!-- footer  -->
     <div class="card mb-3" style="max-width: auto;">
         <div class="row g-0">
           <div class="col-md-4">
@@ -276,13 +266,13 @@
       </div>
 
   </div>
-<!-- ... (remaining HTML code) ... -->
 
-
-
-
-
+</body>
     <!-- Add Bootstrap JS and jQuery (required for Bootstrap's Carousel) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script></body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  
+    
+
 </html>
