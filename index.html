@@ -62,6 +62,42 @@
         justify-content: space-between;
         align-items: center;
         }
+
+        /* News bar animation effect */
+                    .ticker-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 40px;
+            }
+
+            .ticker-move {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translate3d(0, 0, 0);
+            animation: ticker 15s linear infinite;
+            }
+
+            .ticker-item {
+            display: inline-block;
+            margin-right: 30px;
+            white-space: nowrap;
+            font-size: 20px;
+            color: #333;
+            }
+
+            @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 100%);
+            }
+            100% {
+                transform: translate3d(100%, 0, 0);
+            }
+            }
+
+
     </style>
 
 </head>
@@ -115,6 +151,20 @@
         </div>
     </div>
     
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="ticker-wrap">
+              <div class="ticker-move">
+                <div class="ticker-item">111 1111 11111 111111 1111111 111 111 1 1 111.</div>
+                <div class="ticker-item">2222 22222 222222 222222 2 2 2 22222 2 22222 2.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
             
 
             
@@ -129,51 +179,51 @@
        
 
 <!-- slider  -->
-
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="images/0.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h3>رئيس هيئة قضايا الدولة</h3>
-          <p>حلف اليمين لمعالى المستشار رئيس قضايا الدولة </p>
+<div class="container-md">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/0.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h3>رئيس هيئة قضايا الدولة</h3>
+                <p>حلف اليمين لمعالى المستشار رئيس قضايا الدولة </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>إجتماع السيد رئيس الجمهورية</h5>
+                <p>إجتماع السيد الرئيس عبد الفتاح السيسي بالمستشار مسعد عبد المقصود بعد حلف اليمين</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>إحتفالية قضايا الدولة </h5>
+                <p>إحتفالية قضايا الدولة بالذكرى الخمسين لانتصارات حرب اكتوبر المحيدة</p>
+                </div>
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="images/1.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>إجتماع السيد رئيس الجمهورية</h5>
-          <p>إجتماع السيد الرئيس عبد الفتاح السيسي بالمستشار مسعد عبد المقصود بعد حلف اليمين</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="images/2.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>إحتفالية قضايا الدولة </h5>
-          <p>إحتفالية قضايا الدولة بالذكرى الخمسين لانتصارات حرب اكتوبر المحيدة</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
+</div>
 <!-- slider end  -->
 
 <!-- Card  -->
 
-    <div  class="card text-center">
+    <div  class="card text-center container-md ">
         <div class="card-header">
         
         </div>
