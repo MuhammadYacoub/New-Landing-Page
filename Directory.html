@@ -102,7 +102,7 @@
     </div>
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">دليل مستشاري قضايا الدولة</h2>
+        <h2 class="text-center mb-4">دليل مستشاري هيئة قضايا الدولة</h2>
         <input class="form-control mb-4" id="searchInput" type="text" placeholder="ابحث هنا..." onkeyup="filterTable()">
         <div style="height: 400px; overflow-y: auto;">
             <table class="table table-striped">
@@ -117,7 +117,7 @@
                         <th>رقم التعريف</th>
                     </tr>
                     <tr>
-                        <p id="filteredRowCount">Matching rows: 0</p>
+                        <p id="filteredRowCount">عدد النتائج: 0</p>
 
                     </tr>
                 </thead>
@@ -183,7 +183,7 @@
     }
     
     // Update the count display
-    document.getElementById("filteredRowCount").innerText = "Matching rows: " + count;
+    document.getElementById("filteredRowCount").innerText = "عدد النتائج: " + count;
 }
 
 
