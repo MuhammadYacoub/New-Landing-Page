@@ -52,6 +52,15 @@
                     font-size: 12px;
                 }
             }
+
+            /* Example styles for the modal to look more like a card */
+            .modal-content {
+            background-color: #f8f9fa; /* Change as needed */
+            border-radius: 15px; /* Rounded corners for the modal */
+            /* Add other styles to match the provided image */
+            }
+
+
         </style>
         
         <!-- images transformation  -->
@@ -75,11 +84,53 @@
     </head>
 <body>
 
+    <!-- Modal Structure -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel"> المستشار</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-8">
+                          <h2 id="employeeName">مسعد عبد المقصود بيومي حسن</h2>
+                          <p id="employeeDegree">رئيس الهيئة </p>
+                          <hr>
+                          <p id="employeeNumber">11</p>
+                          <p>رقم الأقدمية</p>
+                        </div>
+                        <div class="col-4">
+                          <img id="employeePicture" src="/OIP.jpeg" alt="Picture place" class="img-fluid">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p id="employeeAddress">زاوية بلتان - طوخ - القليوبية</p>
+                        </div>
+                        <div class="col-6">
+                          <p id="employeePhone">01221095683 </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+  
+
         <!-- Header with Image -->
         <header>
             <img src="images/header.jpg" alt="Header Image" class="img-fluid w-100 d-md-block d-none">
             <img src="images/header1.png" alt="Header Image" class="img-fluid w-100 d-block d-md-none">
         </header>
+
+        
 
     <div class="container mt-3">
         <div class="row">
@@ -138,12 +189,13 @@
             })
             .catch(error => console.error('Error fetching data:', error));
 
+        // Populate table with data
         function populateTable(data) {
             const tbody = document.getElementById("employeeDataBody");
             data.forEach(employee => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                    <td>${employee.name}</td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#detailsModal" data-employee-id="${employee.id}">${employee.name}</a></td>
                     <td>${employee.grade}</td>
                     <td>${employee.branch}</td>
                     <td>${employee.timerank}</td>
@@ -154,6 +206,35 @@
                 tbody.appendChild(row);
             });
         }
+        
+        // Event delegation for dynamic content
+        document.getElementById('employeeDataBody').addEventListener('click', function(event) {
+            const target = event.target;
+            if (target.tagName === 'A' && target.dataset.bsToggle === 'modal') {
+                const employeeId = target.dataset.employeeId;
+                const employeeData = data.find(employee => employee.id === employeeId);
+                populateModal(employeeData);
+            }
+        });
+        
+        // Populate modal with employee details
+        function populateModal(employeeData) {
+            const modalLabel = document.getElementById('detailsModalLabel');
+            const modalBody = document.querySelector('.modal-body');
+            modalLabel.textContent = employeeData.name;
+            modalBody.innerHTML = `
+                <!-- Custom content based on the provided design -->
+                <div class="text-center">
+                    <img src="${employeeData.picture}" alt="Employee Picture" class="img-fluid">
+                </div>
+                <h3>${employeeData.name}</h3>
+                <p>${employeeData.degree}</p>
+                <p>${employeeData.address}</p>
+                <p>${employeeData.phone}</p>
+                <!-- Add more details as needed -->
+            `;
+        }
+      
 
         function filterTable() {
     var input, filter, table, tr, td, i, j, txtValue, found, count = 0;

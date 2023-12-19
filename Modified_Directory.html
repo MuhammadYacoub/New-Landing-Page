@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> قضايا الدولة | Egypt Litigation Authority</title>
+    <!-- Other meta tags -->
+    <!-- Favicon -->
+    <!-- Google Fonts and other styles -->
+    <!-- Bootstrap CSS -->
+    <!-- Custom CSS -->
+</head>
+<body>
+    <!-- Modal Structure -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">تفاصيل الموظف</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page content -->
+    <!-- Header with Image -->
+    <!-- Main Menu -->
+    <!-- Search and Table -->
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fetch data and populate the table
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                populateTable(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        
+        // Populate table with data
+        function populateTable(data) {
+            const tbody = document.getElementById("employeeDataBody");
+            data.forEach(employee => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#detailsModal" data-employee-id="${employee.id}">${employee.name}</a></td>
+                    <td>${employee.grade}</td>
+                    <td>${employee.branch}</td>
+                    <td>${employee.timerank}</td>
+                    <td>${employee.address}</td>
+                    <td>${employee.phone}</td>
+                    <td>${employee.id}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        // Event delegation for dynamic content
+        document.getElementById('employeeDataBody').addEventListener('click', function(event) {
+            const target = event.target;
+            if (target.tagName === 'A' && target.dataset.bsToggle === 'modal') {
+                const employeeId = target.dataset.employeeId;
+                const employeeData = data.find(employee => employee.id === employeeId);
+                populateModal(employeeData);
+            }
+        });
+        
+        // Populate modal with employee details
+        function populateModal(employeeData) {
+            const modalLabel = document.getElementById('detailsModalLabel');
+            const modalBody = document.querySelector('.modal-body');
+            modalLabel.textContent = employeeData.name;
+            modalBody.innerHTML = `
+                <!-- Custom content based on the provided design -->
+                <div class="text-center">
+                    <img src="${employeeData.picture}" alt="Employee Picture" class="img-fluid">
+                </div>
+                <h3>${employeeData.name}</h3>
+                <p>${employeeData.degree}</p>
+                <p>${employeeData.address}</p>
+                <p>${employeeData.phone}</p>
+                <!-- Add more details as needed -->
+            `;
+        }
+        
+        // Filter function
+        // ... existing filterTable function ...
+    </script>
+</body>
+</html>
