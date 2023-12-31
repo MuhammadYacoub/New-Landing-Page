@@ -10,7 +10,7 @@
         <meta name="author" content="Muhammad Yacoub">
         <meta name="robots" content="index, follow">
     
-    <!-- openGraph & Twitter cards-->
+        <!-- openGraph & Twitter cards-->
         <meta property="og:title" content="قضايا الدولة | State Litigation Authority">
         <meta property="og:description" content="الموقع الرسمي لهيئة قضايا الدولة | The official site of the Egyptian Litigation Authority">
         <meta property="og:image" content="https://img.youm7.com/ArticleImgs/2023/6/20/87571-%D9%85%D8%A8%D9%86%D9%89-%D9%87%D9%8A%D8%A6%D8%A9-%D9%82%D8%B6%D8%A7%D9%8A%D8%A7-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A9.jfif">
@@ -22,19 +22,19 @@
     
     
     
-    <!-- Add Google Fonts (Alexandria) -->
+        <!-- Add Google Fonts (Alexandria) -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria" />
-    <!-- jQuery -->
+        <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Add Bootstrap CSS -->
+        <!-- Add Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Add Custom CSS to apply Alexandria font -->
+        <!-- Add Custom CSS to apply Alexandria font -->
         <style>
             body, p, h1, h2, h3, h4, h5, h6 {
                 font-family: 'Alexandria', sans-serif;
             }
         
-        /* Default font size for larger devices */
+            /* Default font size for larger devices */
             body {
                 font-size: 12px;
             }
@@ -105,36 +105,21 @@
     </head>
 <body>
 
-    <!-- Modal Structure -->
-    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailsModalLabel"> المستشار</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-8">
-                          <h2 id="employeeName"></h2>
-                          <p id="employeeDegree">  </p>
-                          <hr>
-                          <p id="employeeNumber"></p>
-                          <p> </p>
-                        </div>
-                        <div class="col-4">
-                          <img id="employeePicture" src="/OIP.jpeg" alt="Picture place" class="img-fluid">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <p id="employeeAddress"></p>
-                        </div>
-                        <div class="col-6">
-                          <p id="employeePhone"></p>
-                        </div>
-                      </div>
-                    </div>
+<!-- Add a modal for displaying the selected row -->
+<div class="modal fade" id="selectedRowModal" tabindex="-1" aria-labelledby="selectedRowModalLabel"    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="selectedRowModalLabel">المستشار</h5>
+            </div>
+            <div class="modal-body" id="selectedRowModalBody" >
+                <!-- Content will be dynamically added here -->
+
+                       
+
+
+                
+                   
                   </div>
 
 
@@ -381,61 +366,5 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
     </script>
-
-<!-- Employee Details Modal --
-<div class="modal fade" id="employeeDetailsModal" tabindex="-1" aria-labelledby="employeeDetailsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="employeeDetailsModalLabel">تفاصيل الموظف</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body"> -->
-        <!-- Employee details will be populated here -
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
-
-<script>
-// Fetching and populating the employee details modal
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('employeeDataBody').addEventListener('click', function(event) {
-    if (event.target && event.target.matches('.employee-name')) {
-      const employeeId = event.target.getAttribute('data-employee-id');
-      fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-          const employee = data.find(emp => emp.id == employeeId);
-          if (employee) {
-            populateModal(employee);
-          }
-        })
-        .catch(error => console.error('Error fetching data:', error));
-    }
-  });
-});
-
-function populateModal(details) {
-  const modalTitle = document.getElementById('employeeDetailsModalLabel');
-  const modalBody = document.querySelector('#employeeDetailsModal .modal-body');
-  modalTitle.textContent = details.name; // Set modal title to employee's name
-  // Populate modal body with employee details. Adjust according to your JSON structure.
-  modalBody.innerHTML = `
-    <p>Name: ${details.name}</p>
-    <p>Position: ${details.position}</p>
-    <p>Email: ${details.email}</p>
-    <p>Phone: ${details.phone}</p>
-  `;
-  // Show the modal using Bootstrap's modal method
-  var employeeModal = new bootstrap.Modal(document.getElementById('employeeDetailsModal'));
-  employeeModal.show();
-}
-</script>
 </body>
 </html>
