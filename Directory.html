@@ -67,30 +67,28 @@
         <style>
        
       /* Add this style for the image */
-.fixed-size-image {
-  width: 200px; /* Set the desired width */
-  height: 250; /* Set the desired height */
-  object-fit: cover; /* Optional: Maintain aspect ratio while covering the entire space */
-}
+      .fixed-size-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+      }
 
 
 
 
 
 
-      .modal-content {
-        width: 130%; /* Adjust the width as needed */
-        height: 300;
-        margin: auto; /* Center the modal horizontally */
+    .modal-content {
+        width: 130%; 
+        height: auto; 
+        margin: auto;
      }
 
-
-
-            .square-image-wrapper {
-                position: relative;
-                overflow: hidden;
-                padding-bottom: 100%; /* 1:1 aspect ratio (square) */
-            }
+    .square-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 100%; /* 1:1 aspect ratio (square) */
+     }
     
             .square-image {
                 position: absolute;
@@ -114,20 +112,11 @@
             </div>
             <div class="modal-body" id="selectedRowModalBody" >
                 <!-- Content will be dynamically added here -->
-
-                       
-
-
-                
-                   
-                  </div>
-
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                  </div>
-
-            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">حفظ على الهاتف </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+            </div>
         </div>
     </div>
 </div>
