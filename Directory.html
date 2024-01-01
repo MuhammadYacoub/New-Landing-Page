@@ -9,7 +9,6 @@
         <link href="images/favicon_io/favicon-16x16.png" rel="icon" type="image/x-icon">
         <meta name="author" content="Muhammad Yacoub">
         <meta name="robots" content="index, follow">
-    
         <!-- openGraph & Twitter cards-->
         <meta property="og:title" content="قضايا الدولة | State Litigation Authority">
         <meta property="og:description" content="الموقع الرسمي لهيئة قضايا الدولة | The official site of the Egyptian Litigation Authority">
@@ -19,9 +18,6 @@
         <meta name="twitter:title" content="قضايا الدولة | State Litigation">
         <meta name="twitter:description" content="الموقع الرسمي لهيئة قضايا الدولة | The official site fot Egyptian Litigation Authority">
         <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/ar/1/1e/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%82%D8%B6%D8%A7%D9%8A%D8%A7_%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A9.jpg">
-    
-    
-    
         <!-- Add Google Fonts (Alexandria) -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria" />
         <!-- jQuery -->
@@ -40,66 +36,77 @@
             }
         
             /* Smaller font size for tablets */
-            @media (max-width: 768px) {
-                body {
-                    font-size: 14px;
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                }
+                }
+        
+            /* Even smaller font size for mobile phones */
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
                 }
             }
         
-            /* Even smaller font size for mobile phones */
-            @media (max-width: 480px) {
-                body {
-                    font-size: 12px;
-                }
+        @media (max-width: 768px) {
+            .fixed-size-image {
+                width: 100%; /* Take full width */
+                height: auto; /* Adjust height automatically */
             }
+            /* Add more styles as needed for text or other elements */
+        }
 
             /* Example styles for the modal to look more like a card */
             .modal-content {
-            background-color: #f8f9fa; /* Change as needed */
-            border-radius: 15px; /* Rounded corners for the modal */
-            /* Add other styles to match the provided image */
+                background-color: #f8f9fa; /* Change as needed */
+                border-radius: 15px; /* Rounded corners for the modal */
+                /* Add other styles to match the provided image */
+                }
+
+            .fixed-size-image {
+                max-width: 100%;
+                max-height: 300px;
+                object-fit: cover;
+                border-radius: 10px;
+                border: 1px solid rgb(168, 176, 244);
+                box-shadow: 0 0 10px rgb(168, 192, 244);
             }
 
+            .modal-content {
+                max-width: 100%
+;               height: auto; 
+                margin: auto;
+            }
 
-        </style>
-        
-        <!-- images transformation  -->
-        <style>
-       
-      /* Add this style for the image */
-      .fixed-size-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-      }
-
-
-
-
-
-
-    .modal-content {
-        width: 130%; 
-        height: auto; 
-        margin: auto;
-     }
-
-    .square-image-wrapper {
-        position: relative;
-        overflow: hidden;
-        padding-bottom: 100%; /* 1:1 aspect ratio (square) */
-     }
-    
-            .square-image {
+            /* .square-image-wrapper {
+                position: relative;
+                overflow: hidden;
+                padding-bottom: 100%;
+                
+            }
+                 */
+            /* .square-image {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 100%;
-                object-fit: cover; /* Ensure the image covers the entire container */
+                height: auto;
+                object-fit: cover; 
+                border-radius: 15px;
+                border: 1px solid rgb(168, 176, 244);
+                box-shadow: 0 0 10px rgb(168, 192, 244);
+            } */
+
+            .table-active {
+                height: 300px; overflow-y: auto;
+                border-radius: 15px;
+                border: 1px solid rgb(168, 176, 244);
+                box-shadow: 0 0 10px rgb(168, 192, 244);
+                padding: 10px;;
             }
+
         </style>
-    
     </head>
 <body>
 
@@ -114,7 +121,7 @@
                 <!-- Content will be dynamically added here -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">حفظ على الهاتف </button>
+                <button type="button" class="btn btn-secondary" onclick="saveToPhone()">حفظ على الهاتف</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
             </div>
         </div>
@@ -152,24 +159,21 @@
     <div class="container mt-5">
         <h2 class="text-center mb-4">دليل مستشاري هيئة قضايا الدولة</h2>
         <input class="form-control mb-4" id="searchInput" type="text" placeholder="ابحث هنا..." onkeyup="filterTable()">
-        <div style="height: 400px; overflow-y: auto;">
+        <div class="table-active">
             <table class="table table-striped" id="myTableRow">
                 <thead>
-                    <tr>
-                        <th>الاسم</th>
-                        <th>الدرجة</th>
+                    <tr class="table-primary" >
+                        <th class="text-center" >الاسم</th>
+                <th>الدرجة</th>
                         <th>الفرع</th>
                         <th>العنوان</th>
                         <th>رقم الهاتف</th>
                         <th>رقم التعريف</th>
                     </tr>
-                    <tr id="myTableRow">
-
-                       
+                    <tr id="myTableRow"> 
                         <p id="filteredRowCount">عدد النتائج: 0</p>
-                    </div>
-
-                    </tr>
+                    </tr> 
+                    
                 </thead>
                 <tbody id="employeeDataBody">
                     <!-- Data will be loaded here -->
@@ -189,9 +193,7 @@
             .catch(error => console.error('Error fetching data:', error));
 
         // Populate table with data
-        function populateTable(data) {
-            
-             
+        function populateTable(data) {  
             const tbody = document.getElementById("employeeDataBody");
             data.forEach(employee => {
                 const row = document.createElement("tr");
@@ -202,85 +204,51 @@
                     <td>${employee.address}</td>
                     <td>${employee.phone}</td>
                     <td>${employee.id}</td>
-
                 `;
-
                 row.addEventListener("click", () => displaySelectedRow(employee));
                 var a= row.count;
-               
-                 
-                 
-                
-                tbody.appendChild(row);
+                tbody.appendChild(row);    
+            }      
+            );
+        }       
+         // Function to display selected row in a modal
+        function displaySelectedRow(employee) {
+            const modalBody = document.getElementById("selectedRowModalBody");
 
+            // Clear existing content
+            modalBody.innerHTML = "";
 
-                 
-            }
-
-                 
-                
-            )   ;
-
-
-                 
-
-
-
-           
+            // Add content to the modal body
 
             
-        }
-        
-        // Event delegation for dynamic content
-       
-        
-        // Populate modal with employee details
-        
-
-         // Function to display selected row in a modal
-    function displaySelectedRow(employee) {
-        const modalBody = document.getElementById("selectedRowModalBody");
-
-        // Clear existing content
-        modalBody.innerHTML = "";
-
-        // Add content to the modal body
-
-        
-        const content = document.createElement("div");
-        content.innerHTML = `
+            const content = document.createElement("div");
+            content.innerHTML = `
 
 
-        <div class="container" >
-                      <div class="row">
-                        <div class="col-8">
-                          <h2 id="employeeName">${employee.name}</h2>
-                          <p id="employeeDegree">${employee.grade}</p>
-                          <hr>
-                          <p id="employeeNumber">${employee.id}</p>
-                          <p>${employee.branch}</p>
-                        </div>
-                        <div class="col-4">
-                          <img id="employeePicture" src="images/judgepic 6-3-2023/${employee.timerank}"   alt="Picture place" class="fixed-size-image">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <p id="employeeAddress">${employee.address}</p>
-                        </div>
-                        <div class="col-6">
-                          <p id="employeePhone">${employee.phone} </p>
-                        </div>
-                      </div>
+        <div class="container">
+            <div class="row">
+                <!-- Employee Picture: This will be on the left in desktop view and top in mobile view -->
+                <div class="col-md-4 col-12">
+                <img id="employeePicture" src="images/judgepic 6-3-2023/${employee.timerank}" alt="Picture place" class="fixed-size-image">
+                </div>
+                <!-- Employee Details: This will take the remaining space on the right in desktop view and be below the image in mobile view -->
+                <div class="col-md-8 col-12">
+                <h2 id="employeeName">${employee.name}</h2>
+                <p id="employeeDegree">${employee.grade}</p>
+                <hr>
+                <p id="employeeNumber">${employee.id}</p>
+                <p>${employee.branch}</p>
+                <div class="row">
+                    <div class="col-6">
+                    <p id="employeeAddress">${employee.address}</p>
                     </div>
-                  </div>
-
-
-
-
-
-
-
+                    <div class="col-6">
+                    <p id="employeePhone">${employee.phone}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -292,25 +260,6 @@
         const modal = new bootstrap.Modal(document.getElementById('selectedRowModal'));
         modal.show();
     }
-
-
-
-
-
-
-          
-
-
-        
-        
-      
-
-                 
-
-
-
-
-
 
         function filterTable() {
     var input, filter, table, tr, td, i, j, txtValue, found, count = 0;
@@ -353,6 +302,40 @@ document.addEventListener("DOMContentLoaded", function() {
     var newData = "New content for the paragraph";
     paragraphElement.innerText = newData;
 });
+
+function saveToPhone() {
+    // Assume an employee object is available from the modal's context
+    const employee = {
+        name: document.getElementById('employeeName').innerText,
+        phone: document.getElementById('employeePhone').innerText,
+        address: document.getElementById('employeeAddress').innerText,
+        id: document.getElementById('employeeNumber').innerText,
+        grade: document.getElementById('employeeDegree').innerText,
+        // Add more fields as necessary
+    };
+    
+    // Convert employee object to a vCard string
+    const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${employee.name}
+TEL;TYPE=WORK,VOICE:${employee.phone}
+ADR;TYPE=WORK:;;${employee.address}
+END:VCARD
+`;
+
+    // Convert vCard string to Blob
+    const vCardBlob = new Blob([vCardData], { type: 'text/vcard' });
+
+    // Create a temporary link to trigger the download
+    const tempLink = document.createElement('a');
+    tempLink.href = URL.createObjectURL(vCardBlob);
+    tempLink.setAttribute('download', `contact-${employee.name}.vcf`);
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+}
+
 
     </script>
 </body>
